@@ -1,0 +1,11 @@
+<?php
+$user=$this->session->get('activeUser');
+$role=strtoupper($this->session->get('activeRole'));
+echo '<h1 class="text-center mt-3">Welcome Back,  '. $user .'  ('.$role.')</h1>';
+echo '<div class="row text-center mt-5">';
+echo '<div class="col h3">';
+echo $this->tag->linkTo('/admin/dashboard', 'Go to Dashboard');
+echo '</div>';
+echo '<div class="col h3">';
+echo $this->tag->linkTo('/admin/blog', 'Go to Blogs');
+echo '</div>';

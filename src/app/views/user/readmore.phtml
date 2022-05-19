@@ -1,0 +1,18 @@
+<?php
+foreach ($blog as $k) {
+    if ($k->blog_id == $blog_id) { 
+?>
+
+<table class='table table-bordered mt-5'>
+    <tr class='text text-uppercase text-light bg-dark' style='text-align:center'>
+        <th><?php echo $k->title . '<br>'; ?></th>
+    </tr>
+    <tr style='text-align:justify'>
+        <td style='border-color:black;'><?php echo $k->content . '<br>'; ?></td>
+    </tr>
+</table>
+
+<?php
+    }
+}
+echo $this->tag->linkTo(["/user/blogs", "Go Back", "class" => "btn btn-success"]);

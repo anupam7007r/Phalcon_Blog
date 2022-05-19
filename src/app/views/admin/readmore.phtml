@@ -1,0 +1,37 @@
+<?php
+foreach ($blog as $k) {
+    if ($k->blog_id == $blog_id) { 
+?>
+
+<table class='table table-bordered mt-5'>
+    <tr class='text text-uppercase text-light bg-dark' style='text-align:center'>
+        <th><?php echo $k->title . '<br>'; ?></th>
+    </tr>
+    <tr style='text-align:justify'>
+        <td style='border-color:black;'><?php echo $k->content . '<br>'; ?></td>
+    </tr>
+</table>
+
+<?php
+    }
+}
+echo $this->tag->linkTo(["/admin/blog", "Go Back", "class" => "btn btn-success"]);
+//     }
+// }
+// }
+// // elseif($this->request->getPost('dltBlog')){
+//     foreach ($blog as $k) {
+//         if ($k->blog_id == $id) { 
+//             $k->delete($id);
+//             header('location:/admin/blog');
+//         }
+// }
+// }
+// elseif($this->request->getPost('editBlog')){
+//     foreach ($blog as $k) {
+//         if ($k->blog_id == $id) { 
+//             $this->id=$id;
+//             // header('location:/admin/editblog');
+//         }
+// }
+// }

@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<?php
+$name=$this->session->get('activeUser'); 
+echo "<h1 class='text-dark text-center mt-4 bg-active'>Welcome Back, $name !!</h1>";
+
+echo "<h4 class='text-muted mt-4 float-start'>Check Out Our Latest BLOGs...</h4><br>";
+echo $this->tag->linkTo(["/user/blogs", "Go To Blogs!", 'class' => 'btn btn-info mb-2']);
+echo PHP_EOL;
+
+?>

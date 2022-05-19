@@ -1,0 +1,54 @@
+<?php
+foreach ($blog as $k) {
+    if ($k->blog_id == $blog_id) {
+?>
+        <style>
+            .editText:hover {
+                color: red;
+            }
+            table,
+thead,
+tr,
+tbody,
+th,
+td {
+  text-align: center;
+}
+        </style>
+        <main class='col'>
+
+
+            <body>
+
+                <h2 class="text mt-3 text-dark">Edit Blog</h2>
+
+                <?php echo $this->tag->form(""); ?>
+                <div class="text-active float-center form-group">
+                    <p>
+                        <label for="full_name">Blog Title</label>
+                        <?php echo $this->tag->textField(["newtitle", 'placeholder' => 'Title', "value" => "$k->title", 'style' => 'width:100%; padding:10px', "class" => "editText text-muted"]); ?>
+                    </p>
+                    <p>
+                        <label for="username">Blog Content</label>
+                        <?php echo $this->tag->textArea(["newcontent", 'placeholder' => 'Enter details here...', "value" => "$k->content", 'style' => 'width:100%; height:200px; padding:10px', "class" => "text-muted"]); ?>
+                    </p>
+                    <? if ($saveMsg) { ?>
+                        <div class="alert alert-<?php echo $success === true ? 'success' : 'danger'; ?>">
+                            <?php echo $saveMsg; ?>
+                        </div>
+                    <?php } ?>
+                    <p>
+                        <?php echo $this->tag->submitButton(["Save", 'name' => 'saveEditedBlog', 'class' => 'btn btn-outline-primary mb-2 mt-3', 'style' => "width: 20%"]); ?>
+                    </p>
+                    <p>
+                        <?php echo $this->tag->linkTo(["/admin/blog", "<span>&#8592;</span>Go Back", 'name' => 'goback', 'class' => 'btn btn-success mb-2 mt-3', 'style' => "width: 20%"]); ?>
+                    </p>
+                </div>
+
+                </form>
+
+            </body>
+        </main>
+<?php
+    }
+}

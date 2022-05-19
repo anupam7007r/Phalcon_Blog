@@ -1,0 +1,61 @@
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Phalcon Blog</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100 mr-5" type="text" placeholder="Search" aria-label="Search">
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap bg-info text-white btn btn-outline-info pt-2 pb-2  px-5 mr-2">
+        <?php
+        echo "Hello," . "  " .$this->session->get('activeUser');
+        ?>
+      </div>
+    </div>
+
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap">
+        <a class="nav-link px-3" href="logout">Sign out</a>
+      </div>
+    </div>
+  </header>
+<main class='col col-md-12'>
+                <div class="album py-1 bg-light">
+                    <div class="container overflow-hidden">
+                    </div>
+                    <div class="container bg-light text-dark">
+
+                        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1">
+                            <?php
+                            $a = "";
+                            foreach ($blog as $row) {
+                                $result = substr($row->content, 0, 180);
+                                $a .= "<div class='col col-md-6 justify-content-between mt-2 mb-2'>
+                    <div class='card shadow-sm bg-dark text-light'>
+                    <div class='card-body text-center'>
+                    <p class='card-text font-weight-bold text-uppercase' style='color: rgb(7,150,133); font-size: 20px'>$row->title</p>
+                    <div class='justify-content-center align-items-center'>
+                    <span style='display:inline; text-align: justify;'>$result</span>
+                    <a class='text-muted' href='/user/readmore/".$row->blog_id."'>...Read More</a><br><br> 
+                    <form action='' method='post'>
+                    <input type='hidden' name='blogid' value='$row->blog_id'>
+                    <input name='readmore' type='hidden' href='/admin/readmore' class='text-muted' style= 'border:none; display: inline; background-color: white' value='...Read More'/>
+                    <p class='text-muted'>Date Created: $row->time</p>
+                    
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                    </div>";
+                            }
+
+                            echo $a;
+
+                            ?>
+
+
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+        </main>

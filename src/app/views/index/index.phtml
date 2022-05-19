@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<?php
+echo "<h1 class='text-danger text-center mt-4 mb-5 bg-active'>...Welcome to our blog Page...</h1>";
+echo "<div class='row text-center'>";
+
+echo "<div class='col'><h4 class='text-muted mt-4 float-'>If you aren't a member, </h4>";
+echo $this->tag->linkTo(["signup", "Register Here!", 'class' => 'btn btn-success mb-2 text-center']);
+echo '</div>';
+echo "<div class='col'><h4 class='text-muted mt-4 float-start'>If you are already a member,</h4>";
+echo $this->tag->linkTo(["login", "Login Here!", 'class' => 'btn btn-primary mb-2  text-center']);
+echo '</div>';
+echo '</div>';
+
+// echo $this->session->get('activeRole');
+?>
